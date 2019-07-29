@@ -1,0 +1,39 @@
+{
+    "name": "kamran377/yii2-sweetalert2",
+    "description": "Alert widget based on SweetAlert2 extension {@link https://sweetalert2.github.io/)",
+    "type": "yii2-extension",
+	"minimum-stability": "dev",
+    "keywords": [
+        "yii2",
+        "yii2 sweet alert2",
+        "yii2 alert"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kamran Ali",
+            "email": "kamranalirao@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-bootstrap4": "@dev",
+        "npm-asset/sweetalert2" : "8.14.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "~2.0",
+        "phpunit/phpunit": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "kamran377\\sweetalert2\\": ""
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}
