@@ -19,13 +19,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist yii2mod/yii2-sweet-alert "*"
+php composer.phar require --prefer-dist kamran377/yii2-sweetalert2 "*"
 ```
 
 or add
 
 ```
-"yii2mod/yii2-sweet-alert": "*"
+"kamran377/yii2-sweetalert2": "*"
 ```
 
 to the require section of your composer.json.
