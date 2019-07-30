@@ -61,7 +61,11 @@ class SweetAlert extends Widget
      */
     public $timer = 2500;
 
-    
+    /**
+     * @var string customer alert callback
+     */
+    public $callback = 'function() {}';
+
 	 /**
      * Plugin options
      * @var array
@@ -112,7 +116,7 @@ class SweetAlert extends Widget
             $view = $this->getView();
             SweetAlertAsset::register($view);
 			 
-			$js = "console.log({$this->getOptions()});Swal.fire({$this->getOptions()}, {$this->callback});";
+			$js = "Swal.fire({$this->getOptions()}).then({$this->callback});";
             $view->registerJs($js, $view::POS_END);
         }
     }
