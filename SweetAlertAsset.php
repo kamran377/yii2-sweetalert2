@@ -53,8 +53,8 @@ class SweetAlertAsset extends AssetBundle
                     title: message,
                     type: "warning",
                     showCancelButton: true,
-                    confirmButtonText: "'.Yii::t('app', 'Yes').'",
-                    cancelButtonText: "'.Yii::t('app', 'No').'",
+                    confirmButtonText: "'.\Yii::t('app', 'Yes').'",
+                    cancelButtonText: "'.\Yii::t('app', 'No').'",
                 },
                 function(isConfirm){
                     var data = context.data();
