@@ -43,80 +43,37 @@ Yii::$app->session->setFlash('success', 'This is the message');
 
 2) Simply add widget to your page as follows:
 ```php
-echo Alert::widget();
+echo kamran377\sweetalert2\SweetAlert::widget();
 ```
 
 **For render the custom message you can use the following code:**
 ```php
 // A replacement for the "prompt" function
 
-echo \yii2mod\alert\Alert::widget([
-    'useSessionFlash' => false,
-    'options' => [
-        'timer' => null,
-        'type' => \yii2mod\alert\Alert::TYPE_INPUT,
-        'title' => 'An input!',
-        'text' => "Write something interesting",
-        'confirmButtonText' => "Yes, delete it!",
-        'closeOnConfirm' => false,
-        'showCancelButton' => true,
-        'animation' => "slide-from-top",
-        'inputPlaceholder' => "Write something"
-    ],
-    'callback' => new \yii\web\JsExpression(' function(inputValue) { 
-                if (inputValue === false) return false;      
-                if (inputValue === "") { 
-                    swal.showInputError("You need to write something!");     
-                    return false;   
-                }      
-                swal("Nice!", "You wrote: " + inputValue, "success"); 
-    }')
+echo \kamran377\yii2-sweetalert2\SweetAlert::widget([
+        'type' => \kamran377\yii2-sweetalert2\SweetAlert::TYPE_WARNING,
+        'options' => [
+            'title' => 'Warning message',
+            'text' => "Do you want to delete it?",
+            'confirmButtonText'  => "Yes, delete it!",
+            'cancelButtonText' =>  "No, cancel plx!"
+        ]
 ]);
 ```
 
-**You can also change the theme of SweetAlert!**
+** Javascrip Confrim Dialog Override**
 
-To change the theme, you can configure the assetManager array in your application configuration:
+The native javascript confirm dialog is overridden by default, to disable this override, use the following configuration in config.php or web,php(in advanced template):
 ```php
-// twitter theme
-
 'assetManager' => [
     'bundles' => [
-        'yii2mod\alert\AlertAsset' => [
-            'css' => [
-                'dist/sweetalert.css',
-                'themes/twitter/twitter.css',
-            ]
-        ],
-    ],
+        'kamran377\yii2-sweetalert2\SweetAlertAsset' => [
+            'overrideConfirm' => false
+        ]
+    ]
 ]
 ```
 
-**You can override the Yii2 default data-confirm popup by the following code:**
-
-The basics are to include the asset, then add this JS:
-
-```js
-/**
- * Override the default yii confirm dialog. This function is
- * called by yii when a confirmation is requested.
- *
- * @param message the message to display
- * @param okCallback triggered when confirmation is true
- * @param cancelCallback callback triggered when cancelled
- */
-yii.confirm = function (message, okCallback, cancelCallback) {
-    swal({
-        title: message,
-        type: 'warning',
-        showCancelButton: true,
-        closeOnConfirm: true,
-        allowOutsideClick: true
-    }, okCallback);
-};
-```
-
-
-Alert Options 
+Sweet Alert2 Options 
 ----------------
-You can find them on the [options page](http://t4t5.github.io/sweetalert/)
+You can find them on the [sweetalert2 homepage](https://sweetalert2.github.io/)
