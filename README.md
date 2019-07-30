@@ -53,10 +53,9 @@ echo kamran377\sweetalert2\SweetAlert::widget();
 echo \kamran377\yii2-sweetalert2\SweetAlert::widget([
         'type' => \kamran377\yii2-sweetalert2\SweetAlert::TYPE_WARNING,
         'options' => [
-            'title' => 'Warning message',
-            'text' => "Do you want to delete it?",
-            'confirmButtonText'  => "Yes, delete it!",
-            'cancelButtonText' =>  "No, cancel plx!"
+            'title' => 'Oops...',
+            'text' => 'Something went wrong!',
+            'footer' => '<a href>Why do I have this issue?</a>'
         ]
 ]);
 ```
