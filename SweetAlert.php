@@ -36,11 +36,6 @@ class SweetAlert extends Widget
     const TYPE_WARNING = 'warning';
 
     /**
-     * Input type of the alert
-     */
-    const TYPE_INPUT = 'input';
-
-    /**
      * @var string the type of the alert to be displayed. One of the `TYPE_` constants.
      * Defaults to `TYPE_SUCCESS`
      */
@@ -66,15 +61,12 @@ class SweetAlert extends Widget
      */
     public $timer = 2500;
 
-    /**
-     * @var string customer alert callback
+    
+	 /**
+     * Plugin options
+     * @var array
      */
-    public $callback = 'function() {}';
-
-	/**
-     * @var string customer alert callback
-     */
-	public $id = "";
+    public $options = [];
     /**
      * Initializes the widget
      */

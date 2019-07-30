@@ -42,7 +42,7 @@ class SweetAlertAsset extends AssetBundle
 	
 	public static function overrideConfirm()
     {
-        Yii::$app->view->registerJs('
+        \Yii::$app->view->registerJs('
             // workaround for bootstrap modal
             $.fn.modal.Constructor.prototype.enforceFocus = function () {};
             yii.confirm = function (message, ok, cancel) {
