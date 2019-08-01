@@ -4,7 +4,7 @@ namespace kamran377\sweetalert2;
 
 use Yii;
 use yii\base\InvalidConfigException;
-use yii\bootstrap\Widget;
+use yii\bootstrap4\Widget;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 
