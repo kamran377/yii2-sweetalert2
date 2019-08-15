@@ -44,30 +44,29 @@ class SweetAlertAsset extends AssetBundle
     {
         \Yii::$app->view->registerJs('
             // workaround for bootstrap modal
+			console.log($.fn);
             $.fn.modal.Constructor.prototype.enforceFocus = function () {};
-            yii.confirm = function (message, ok, cancel) {
+			yii.confirm = function (message, ok, cancel) {
                 context = $(this);
                 var target = $(this).data();
                 console.log($(this).attr("href"));
-                swal({
+                Swal.fire({
                     title: message,
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonText: "'.\Yii::t('app', 'Yes').'",
                     cancelButtonText: "'.\Yii::t('app', 'No').'",
-                },
-                function(isConfirm){
-                    var data = context.data();
-                    if (isConfirm) {
-                        if(typeof data.method === "undefined"){
+                }).then((result) => {
+					var data = context.data();
+						
+					if (result.value) {
+						if(typeof data.method === "undefined"){
                             window.location.href = context.attr("href");
                             return false;
                         }
                         !ok || ok();
-                    } else {
-                        !cancel || cancel();
-                    }
-                });
+					}
+				});          
             }
         ');
     }
